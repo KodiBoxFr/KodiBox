@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="plugin.video.kodiboxstreaming" name="KodiBox Streaming"  version="1.2" provider-name="KodiBox" >
+<addon id="plugin.program.speedtest" version="1.0" name="KodiBox Speed Test" provider-namer="KodiBox">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0"/>
+	</requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">KodiBox Speed Test</summary>
+        <platform>all</platform>
+        <forum></forum>
+        <website></website>
+        <source></source>
+    </extension>
+</addon>
+
+<addon id="plugin.video.kodiboxstreaming" name="KodiBox Streaming"  version="1.3" provider-name="KodiBox" >
 	<requires>
 		<import addon="xbmc.python" version="2.1.0" />
 		<import addon="script.module.requests" />
 		<import addon="script.module.metahandler" />
 		<import addon="plugin.video.youtube" optional="true" />
 		<import addon="script.kodiboxstreaming.urlresolver" />
-		<import addon="script.kodiboxstreaming.media" version="1.0.0"/>
-
+		<import addon="script.kodiboxstreaming.media" />
+		<import addon="repository.kodibox" />
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="default.py">
 		<provides>video</provides>
@@ -31,9 +47,9 @@
             <import addon="xbmc.addon" version="12.0.0"/>
         </requires>
         <extension point="xbmc.addon.repository" name="KodiBox Repository">
-            <info compressed="false">https://raw.githubusercontent.com/KodiBoxFr/KodiBox/master/_repo/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/KodiBoxFr/KodiBox/master/_repo/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/KodiBoxFr/KodiBox/master/_repo/</datadir>
+            <info compressed="false">https://raw.githubusercontent.com/KodiBoxFr/KodiBox/_repo/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/KodiBoxFr/KodiBox/_repo/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/KodiBoxFr/KodiBox/_repo/</datadir>
             <hashes>false</hashes>
         </extension>
         <extension point="xbmc.addon.metadata">
@@ -41,6 +57,21 @@
             <description>KodiBox Repository to install Addons</description>
             <platform>all</platform>
     </extension>
+</addon>
+
+<addon id="script.kodibox.update" version="1.0" name="KodiBox Updater" provider-name="KodiBox">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+		<import addon="script.module.requests" version="2.12.4"/>
+	</requires>
+	<extension point="xbmc.service" library="service.py" start="login"/>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">KodiBox Updater</summary>
+		<platform>all</platform>
+		<forum></forum>
+		<website></website>
+		<source></source>
+	</extension>
 </addon>
 
 <addon id="script.kodiboxstreaming.media" version="1.0.0" name="KodiBox Streaming Media" provider-name="KodiBox" >

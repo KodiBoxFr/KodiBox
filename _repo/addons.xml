@@ -116,9 +116,10 @@
 	</extension>
 </addon>
 
-<addon id="script.kodibox.backup" version="1.2.1" name="KodiBox Backup" provider-name="KodiBox">
+<addon id="script.kodibox.backup" version="1.2.2" name="KodiBox Backup" provider-name="KodiBox">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0" />
+		<import addon="repository.kodibox"/>
 	</requires>
 	<extension point="xbmc.python.script" library="addon.py">
         <provides>executable</provides>
